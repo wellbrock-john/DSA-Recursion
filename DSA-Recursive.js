@@ -21,14 +21,16 @@ console.log(countSheep(num));
 
 //2. POWER CALCULATOR
 const powerCalculator = function (baseInt, exponent) {
-	//Base case
+	// Base cases
 	if (exponent < 0) {
 		return "exponent should be >=0";
 	} else if (exponent === 0) {
 		return 1;
 	} else if (exponent === 1) {
 		return baseInt;
-	} else {
+	}
+	// General case
+	else {
 		return baseInt * powerCalculator(baseInt, exponent - 1);
 	}
 };
@@ -39,12 +41,28 @@ console.log(powerCalculator(base, exp));
 
 //3. REVERSE STRING
 const reverseString = function (string) {
-	//Base case
+	// Base case
 	if (string === "") {
 		return "";
-	} else {
+	}
+	// General case
+	else {
 		return reverseString(string.substr(1)) + string.charAt(0);
 	}
 };
 
 console.log(reverseString("hello"));
+
+//4. Nth TRIANGULAR NUMBER
+const calculateTriNum = function (nth) {
+	// Base case
+	if (nth === 1) {
+		return nth;
+	}
+	// General case
+	else {
+		return nth + calculateTriNum(nth - 1);
+	}
+};
+
+console.log(calculateTriNum(8));
